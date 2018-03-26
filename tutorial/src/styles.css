@@ -19,6 +19,19 @@ a:focus {
     transition: all 0.3s;
 }
 
+pre {
+    padding: 0;
+    overflow: scroll;
+    border-radius: 0;
+    background-color: #eee;
+    border-color: #e0e0e0;
+}
+
+code {
+    font-family: monospace, monospace;
+    font-size: 90%;
+}
+
 .navbar {
     padding: 15px 10px;
     background: #fff;
