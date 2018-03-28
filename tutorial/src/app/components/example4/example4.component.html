@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="name" name="name" #name class="form-control" aria-describedby="nameHelp" placeholder="Enter name">
+
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" #age class="form-control" placeholder="Enter Age">
+            </div>
+            <div class="form-group">
+                <label for="addr1">Address 1</label>
+                <input type="text" #addr1 class="form-control" placeholder="Enter Address 1">
+            </div>
+            <div class="form-group">
+                <label for="addr2">Address 2</label>
+                <input type="text" #addr2 class="form-control" placeholder="Enter Address 2">
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" #state class="form-control" placeholder="Enter State">
+            </div>
+            <div class="form-group">
+                <label for="city">city</label>
+                <input type="text" #city class="form-control" placeholder="Enter City">
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip</label>
+                <input type="text" #zip class="form-control" placeholder="Enter Zip">
+            </div>
+
+            <button (click)="addUser(name,age,addr1,addr2,state,city,zip)" class="btn btn-primary">
+              Submit  
+            </button>
+        </form>
+    </div>
+    <div class="col-md-3">
+        <input type="checkbox" name="addtop" [(ngModel)]="addTop">
+        <label for="addtop">Add to the top</label>
+        <div *ngFor="let user of users">
+            <div class="card card-block mb-2">
+                <h4 class="card-title"><span class="delete" (click)="delete(user)">x</span> {{user.name}}</h4>
+                <p class="card-text">
+                    <app-example3 [user]="user"></app-example3>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div *ngIf="rh_users.length==0">No users removed yet.</div>
+        <div *ngIf="rh_users.length>0">List of Users added</div>
+        <div *ngFor="let user of rh_users">
+            <div class="card card-block mb-2">
+                <h4 class="card-title"><span class="add" (click)="add(user)">+</span> {{user.name}}</h4>
+                <p class="card-text">
+                    <app-example3 [user]="user"></app-example3>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

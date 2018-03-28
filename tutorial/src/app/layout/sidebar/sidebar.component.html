@@ -8,29 +8,31 @@
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Components</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">Home 1</a>
+                    <a [routerLink]="['/components']">Component Binding</a>
                 </li>
                 <li>
-                    <a href="#">Home 2</a>
+                    <a [routerLink]="['/components/example2']">Component List Binding </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/components/example4']">Component Form Binding</a>
                 </li>
                 <li>
-                    <a href="#">Home 3</a>
+                    <a [routerLink]="['/components/example5']">Component FormGroup Binding</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#">About</a>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Stylings & Pipes</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
-                    <a href="#">Page 1</a>
+                    <a [routerLink]="['/stylings']">Class Binding </a>
                 </li>
                 <li>
-                    <a href="#">Page 2</a>
+                    <a href="#">Style Binding </a>
                 </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
+
             </ul>
         </li>
         <li>

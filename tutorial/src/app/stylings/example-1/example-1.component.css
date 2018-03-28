@@ -1,0 +1,8 @@
+.delete {
+    color: red;
+}
+
+.add,
+.isUserActive {
+    color: green;
+}

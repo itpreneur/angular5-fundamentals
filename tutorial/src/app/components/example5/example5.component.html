@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-md-12">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="name" required name="name" [(ngModel)]="name" #newname="ngModel" class="form-control" aria-describedby="nameHelp" placeholder="Enter name">
+                <div *ngIf="!newname.valid && myForm.submitted && !newname.value?.name">
+                    Name is required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" [(ngModel)]="age" class="form-control" placeholder="Enter Age">
+            </div>
+            <div class="form-group">
+                <label for="addr1">Address 1</label>
+                <input type="text" required name="addr1" [(ngModel)]="addr1" #newaddr1="ngModel" class="form-control" placeholder="Enter Address 1">
+                <div *ngIf="!newaddr1.valid && myForm.submitted && !newaddr1.value?.addr1">
+                    Address 1 is required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="addr2">Address 2</label>
+                <input type="text" name="addr2" [(ngModel)]="addr2" class="form-control" placeholder="Enter Address 2">
+            </div>
+            <div class="form-group">
+                <label for="city">city</label>
+                <input type="text" required name="city" [(ngModel)]="city" #newcity="ngModel" class="form-control" placeholder="Enter City">
+                <div *ngIf="!newcity.valid && myForm.submitted && !newcity.value?.city">
+                    City is required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" required name="state" [(ngModel)]="state" #newstate="ngModel" class="form-control" placeholder="Enter State">
+                <div *ngIf="!newstate.valid && myForm.submitted && !newstate.value?.state">
+                    State is required!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="zip">Zip</label>
+                <input type="text" required name="zip" [(ngModel)]="zip" #newzip="ngModel" class="form-control" placeholder="Enter Zip">
+                <div *ngIf="!newzip.valid && myForm.submitted && !newzip.value?.zip">
+                    Zip is required!
+                </div>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <input type="checkbox" name="addtop" [(ngModel)]="addTop">
+        <label for="addtop">Add to the top</label>
+        <div *ngFor="let user of users">
+            <h5> <span class="delete" (click)="delete(user)">x</span> {{user.name}}</h5>
+            <!-- <span>{{user.address.addr1 }} {{user.address.addr2 }} {{user.address.state }} {{user.address.city }} {{user.address.zip }}</span> -->
+            <app-example3 [user]="user"></app-example3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="rh_users.length==0">No users removed yet.</div>
+        <div *ngIf="rh_users.length>0">List of Users added</div>
+        <div *ngFor="let user of rh_users">
+
+            <h5> <span class="add" (click)="add(user)">+</span> {{user.name}}</h5>
+            <app-example3 [user]="user"></app-example3>
+            <!--<span>{{user.address.addr1 }} {{user.address.addr2 }} {{user.address.state }} {{user.address.city }} {{user.address.zip }}</span> -->
+        </div>
+
+    </div>
+</div>

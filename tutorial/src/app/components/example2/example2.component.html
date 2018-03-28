@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6">
+        <input type="checkbox" name="addtop" [(ngModel)]="addTop">
+        <label for="addtop">Add to the top</label>
+        <div *ngFor="let user of users">
+            <div class="card card-block mb-2">
+                <h4 class="card-title"><span class="delete" (click)="delete(user)">x</span> {{user.name}}</h4>
+                <p class="card-text">
+                    <app-example3 [user]="user"></app-example3>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="rh_users.length==0">No users removed yet.</div>
+        <div *ngIf="rh_users.length>0">List of Users added</div>
+        <div *ngFor="let user of rh_users">
+            <div class="card card-block mb-2">
+                <h4 class="card-title"><span class="add" (click)="add(user)">+</span> {{user.name}}</h4>
+                <p class="card-text">
+                    <app-example3 [user]="user"></app-example3>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
