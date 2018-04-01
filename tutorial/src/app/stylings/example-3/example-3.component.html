@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-6">
+        <input type="checkbox" name="addtop" [(ngModel)]="addTop">
+        <label for="addtop">Add to the top</label>
+        <div>Test: </div><input name="parentviewchild" #parentviewchild placeholder="send value to parent">
+        <div *ngFor="let user of users">
+            <div class="card card-block mb-2 drop-target" draggable="true" (dragleave)="onDragLeave($event,user)" (dragover)="onDrag($event,user)" (drop)="onDrop($event,user)">
+                <h4 class="card-title"><span [style.display]="user.isActive?'block':'none'" (click)="delete(user)">x</span>
+                    <i [ngClass]="user.isActive?'fa-check-circle':'fa-ban'" class="fa " aria-hidden="true"></i> {{user.name}}
+                </h4>
+                <div class="card-text">
+                    <button (click)="senddata(user)">Send data to parent component</button>
+
+                    <!-- <app-common [user]="user"></app-common> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="rh_users.length==0">No users removed yet.</div>
+        <div *ngIf="rh_users.length>0">List of Users added</div>
+        <div *ngFor="let user of rh_users">
+            <div class="card card-block mb-2">
+                <h4 class="card-title"><span [ngStyle]="{'display': user.isActive?'block':'none'}" class="add" (click)="add(user)">+</span>
+                    <span [class.isUserActive]='user.isActive'>{{user.name}}</span></h4>
+                <p class="card-text">
+                    <app-common [user]="user"></app-common>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="name" required name="name" [(ngModel)]="name" #newname="ngModel" class="form-control" aria-describedby="nameHelp" placeholder="Enter name">
-                <div *ngIf="!newname.valid && myForm.submitted && !newname.value?.name">
+                <div *ngIf="!newname.valid && myForm.submitted && newname.errors">
                     Name is required!
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="addr1">Address 1</label>
                 <input type="text" required name="addr1" [(ngModel)]="addr1" #newaddr1="ngModel" class="form-control" placeholder="Enter Address 1">
-                <div *ngIf="!newaddr1.valid && myForm.submitted && !newaddr1.value?.addr1">
+                <div *ngIf="!newaddr1.valid && myForm.submitted && newaddr1.errors">
                     Address 1 is required!
                 </div>
             </div>
@@ -26,14 +26,14 @@
             <div class="form-group">
                 <label for="city">city</label>
                 <input type="text" required name="city" [(ngModel)]="city" #newcity="ngModel" class="form-control" placeholder="Enter City">
-                <div *ngIf="!newcity.valid && myForm.submitted && !newcity.value?.city">
+                <div *ngIf="!newcity.valid && myForm.submitted && newcity.errors">
                     City is required!
                 </div>
             </div>
             <div class="form-group">
                 <label for="state">State</label>
                 <input type="text" required name="state" [(ngModel)]="state" #newstate="ngModel" class="form-control" placeholder="Enter State">
-                <div *ngIf="!newstate.valid && myForm.submitted && !newstate.value?.state">
+                <div *ngIf="!newstate.valid && myForm.submitted && newstate.errors">
                     State is required!
                 </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="form-group">
                 <label for="zip">Zip</label>
                 <input type="text" required name="zip" [(ngModel)]="zip" #newzip="ngModel" class="form-control" placeholder="Enter Zip">
-                <div *ngIf="!newzip.valid && myForm.submitted && !newzip.value?.zip">
+                <div *ngIf="!newzip.valid && myForm.submitted && newzip.errors">
                     Zip is required!
                 </div>
             </div>

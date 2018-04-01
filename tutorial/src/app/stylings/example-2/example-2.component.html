@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-6">
+        <input type="checkbox" name="addtop" [(ngModel)]="addTop">
+        <label for="addtop">Add to the top</label>
+        <div *ngFor="let user of users">
+            <div class="card card-block mb-2 ">
+                <h4 class="card-title"><span [style.display]="user.isActive?'block':'none'" (click)="delete(user)">x</span>
+                    <i [ngClass]="user.isActive?'fa-check-circle':'fa-ban'" class="fa " aria-hidden="true"></i> {{user.name}}
+                </h4>
+                <div class="card-text">
+                    <app-common [user]="user"></app-common>
+                    <div>Salary: {{user.salary | currency:"USD":"symbol"}} {{user.salary | currency:"USD":"code"}}</div>
+                    <div>Date Hired: {{user.datehired | date:'fullDate'}}</div>
+                    <div>Short Date: {{user.datehired | date}}</div>
+                    <div>French Date: {{user.datehired | date:'full':'':'fr'}}</div>
+                    <div>GMT Date: {{user.datehired | date:'yyyy-MM-dd HH:mm a z':'+0900'}}</div>
+                    <div> {{ .5 | percent }}</div>
+                    <div ngNonBindable><pre><code>GMT Date: {{user.datehired | date:'yyyy-MM-dd HH:mm a z':'+0900'}}</code></pre></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="rh_users.length==0">No users removed yet.</div>
+        <div *ngIf="rh_users.length>0">List of Users added</div>
+        <div *ngFor="let user of rh_users">
+            <div class="card card-block mb-2">
+                <h4 class="card-title"><span [ngStyle]="{'display': user.isActive?'block':'none'}" class="add" (click)="add(user)">+</span>
+                    <span [class.isUserActive]='user.isActive'>{{user.name}}</span></h4>
+                <p class="card-text">
+                    <app-common [user]="user"></app-common>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

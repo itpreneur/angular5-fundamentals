@@ -23,24 +23,27 @@
             </ul>
         </li>
         <li>
-
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Stylings & Pipes</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
-                    <a [routerLink]="['/stylings']">Class Binding </a>
+                    <a [routerLink]="['/stylings']">Class & Styles Binding </a>
                 </li>
                 <li>
-                    <a href="#">Style Binding </a>
+                    <a [routerLink]="['/stylings/pipes']">Pipes </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/stylings/events']">Events </a>
                 </li>
 
             </ul>
         </li>
         <li>
-            <a href="#">Portfolio</a>
+            <a [routerLink]="['/stylings/services']">Services </a>
         </li>
         <li>
-            <a href="#">Contact</a>
+            <a [routerLink]="['/stylings/httpclient']">HttpClient </a>
         </li>
+
     </ul>
 
     <ul class="list-unstyled CTAs">

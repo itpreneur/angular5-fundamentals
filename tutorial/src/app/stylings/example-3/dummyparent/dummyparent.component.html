@@ -1,0 +1,5 @@
+{{message}}
+<div *ngIf="msg">
+    Message received from child component {{ msg | json}}</div>
+<app-example-3 (toParent)="listentoChild($event)">
+</app-example-3>

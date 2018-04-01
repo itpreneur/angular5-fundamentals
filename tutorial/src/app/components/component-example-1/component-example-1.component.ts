@@ -10,7 +10,7 @@ export class ComponentExample1Component implements OnInit {
   user: Userinfo;
   myTuple = [1, 'myname', true];
   constructor() {
-    this.user = new Userinfo('Bill Gates', 30, 'One Way Street', '', 'Seattle', 'Washington', '12345');
+    this.user = new Userinfo('Bill Gates', 30, 'One Way Street', '', 'Seattle', 'Washington', '12345', new Date('10-03-2010'), 10000, true);
 
   }
 
