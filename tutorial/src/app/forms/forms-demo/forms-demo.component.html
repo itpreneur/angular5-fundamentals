@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-10">
+        <h2>NgForms Demo</h2>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="form-group">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="NAME" name="name" ngModel>
+            </div>
+            <div class="form-control ">
+                <label for="age">Age</label>
+                <input type="text" id="age" placeholder="AGE" name="age" ngModel>
+            </div>
+
+            <button type="submit" class="pt-10 btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>Reactive Forms Demo</h2>
+        <form class="form-group" [class.error]="!myForm.valid && myForm.touched" [formGroup]="myForm" (ngSubmit)="onSubmitMyForm(myForm.value)">
+            <div class="form-control">
+                <label for="name1">Name</label>
+                <input type="text" placeholder="NAME" name="name1" [formControl]="name1">
+                <div *ngIf="!name1.valid && name1.touched">Name is Required</div>
+
+            </div>
+            <div class="form-control ">
+                <label for="age1">Age</label>
+                <input type="text" placeholder="AGE" name="age1" [formControl]="myForm.controls['age1']">
+                <div *ngIf="!myForm.controls['age1'].valid && myForm.controls['age1'].touched">Age is Required</div>
+            </div>
+            <div *ngIf="myForm.hasError('required','name1')" class="ui error message">One of the field is required</div>
+            <button type="submit" class="pt-10 btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <h2>Reactive Forms Custom Validators</h2>
+        <form class="form-group" [formGroup]="customValidatorForm" (ngSubmit)="onSubmitValidator(customValidatorForm.value)">
+            <div class="form-control">
+                <label for="sku">sku</label>
+                <input type="text" placeholder="SKU" name="sku" [formControl]="sku">
+
+                <div *ngIf="sku.hasError('invalidSku')" class="ui error message">SKU must begin with <span>123</span></div>
+            </div>
+            <div class="form-control">
+                <label for="productNameInput">Product Name</label>
+                <input type="text" id="productNameInput" placeholder="Product Name" [formControl]="customValidatorForm.get('productName')" [(ngModel)]="productName">
+            </div>
+            <button type="submit" class="pt-10 btn btn-primary">Submit</button>
+
+            <div *ngIf="productName" class="row">Product name is {{ productName}}</div>
+        </form>
+    </div>
+</div>

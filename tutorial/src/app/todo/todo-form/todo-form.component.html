@@ -1,0 +1,10 @@
+<div class="card card-body">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" name="text" class="form-control" [(ngModel)]="text" placeholder="Add some todos...">
+
+        </div>
+        <input type="submit" value="Add Todos" class="btn btn-light" [disabled]="!this.text">
+        <button class="btn btn-warning" (click)="clearForm()" [hidden]="!this.text">Clear</button>
+    </form>
+</div>

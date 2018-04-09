@@ -1,0 +1,8 @@
+.log-date {
+    padding-left: 40px;
+    color: #777;
+}
+
+ul li>a:hover {
+    cursor: pointer;
+}
